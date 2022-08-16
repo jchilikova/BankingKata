@@ -4,10 +4,10 @@ namespace BankingKata
 {
     public interface IAccount
     {
-        void Deposit(int amount);
+        decimal Balance { get; set; }
 
-        void Withdraw(int amount);
+        void Deposit(decimal amount);
 
-        BankStatement GetStatement();
+        void Withdraw(decimal amount);
     }
 }

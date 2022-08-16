@@ -1,22 +1,21 @@
-﻿namespace BankingKata
+﻿using System;
+
+namespace BankingKata
 {
     public class Account : IAccount
     {
-        public BankStatement Statement { get; set; }
+        private const int round = 2;
 
-        public void Deposit(int amount)
+        public decimal Balance { get; set; }
+
+        public void Deposit(decimal amount)
         {
-            throw new System.NotImplementedException();
+            Math.Round(Balance += amount, round);
         }
 
-        public void Withdraw(int amount)
+        public void Withdraw(decimal amount)
         {
-            throw new System.NotImplementedException();
+            Math.Round(Balance -= amount, round);
         }
-
-        public BankStatement GetStatement()
-        {
-            throw new System.NotImplementedException();
-        }        
     }
 }
