@@ -6,8 +6,8 @@ namespace BankingKata
     {
         decimal Balance { get; set; }
 
-        void Deposit(decimal amount);
+        BalanceResult Deposit(decimal amount);
 
-        void Withdraw(decimal amount);
+        BalanceResult Withdraw(decimal amount);
     }
 }

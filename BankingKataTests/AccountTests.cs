@@ -6,12 +6,12 @@ namespace BankingKataTests
 {
     public class AccountTests
     {
-        private Account account;
+        private IAccount account;
         
         [SetUp]
         public void Setup()
         {
-            account = new Mock<Account>().Object;
+            account = new Mock<IAccount>().Object;
             account.Balance = 100;
         }
 
@@ -22,10 +22,10 @@ namespace BankingKataTests
             var amount = 40;
 
             // Act
-            account.Deposit(amount);
+            var result = account.Deposit(amount);
 
             // Assert
-            Assert.AreEqual(140, account.Balance);
+            Assert.AreEqual(140, result.Balance);
         }
 
         [Test]
@@ -35,10 +35,10 @@ namespace BankingKataTests
             var amount = 40.45m;
 
             // Act
-            account.Deposit(amount);
+            var result = account.Deposit(amount);
 
             // Assert
-            Assert.AreEqual(account.Balance, 140.45m);
+            Assert.AreEqual(result.Balance, 140.45m);
         }
 
         public void Deposit_WhenAmountIsPositiveDecimal_ShouldHaveRoundedBalance()
@@ -47,10 +47,10 @@ namespace BankingKataTests
             var amount = 40.451222424m;
 
             // Act
-            account.Deposit(amount);
+            var result = account.Deposit(amount);
 
             // Assert
-            Assert.AreEqual(account.Balance, 140.45m);
+            Assert.AreEqual(result.Balance, 140.45m);
         }
 
         [Test]
@@ -60,10 +60,62 @@ namespace BankingKataTests
             var amount = -300;
 
             // Act
+            var result = account.Deposit(amount);
+
+            // Assert
+            Assert.Pass();
+        }
+
+        [Test]
+        public void Withdraw_WhenAmountIsNegative_ShouldReturnError()
+        {
+            // Arrange
+            var amount = -300;
+
+            // Act
             account.Deposit(amount);
 
             // Assert
             Assert.Pass();
-        }        
+        }
+
+        [Test]
+        public void Withdraw_WhenAmountIsPositive_ShouldWithdrawFromBalance()
+        {
+            // Arrange
+            var amount = -300;
+
+            // Act
+            account.Deposit(amount);
+
+            // Assert
+            Assert.Pass();
+        }
+
+        [Test]
+        public void Withdraw_WhenAmountIsPositiveDecimal_ShouldWithdrawFromBalance()
+        {
+            // Arrange
+            var amount = -300;
+
+            // Act
+            account.Deposit(amount);
+
+            // Assert
+            Assert.Pass();
+        }
+
+        [Test]
+        public void Withdraw_WhenBalanceIsZero_ShouldReturnInsufficientFunds()
+        {
+            // Arrange
+            var amount = -300;
+
+            // Act
+            account.Deposit(amount);
+
+            // Assert
+            Assert.Pass();
+        }
     }
 }

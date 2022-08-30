@@ -8,14 +8,22 @@ namespace BankingKata
 
         public decimal Balance { get; set; }
 
-        public void Deposit(decimal amount)
+        public BalanceResult Deposit(decimal amount)
         {
-            Math.Round(Balance += amount, round);
+            return new BalanceResult()
+            {
+                Balance = Math.Round(Balance += amount, round),
+                Error = null
+            };
         }
 
-        public void Withdraw(decimal amount)
+        public BalanceResult Withdraw(decimal amount)
         {
-            Math.Round(Balance -= amount, round);
+            return new BalanceResult()
+            {
+                Balance = Math.Round(Balance -= amount, round),
+                Error = null
+            };
         }
     }
 }
