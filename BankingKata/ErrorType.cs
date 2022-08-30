@@ -3,6 +3,6 @@
     public enum ErrorType
     {
         InsufficientFunds,
-        AmountIsNegative
+        NegativeAmount
     }
 }
