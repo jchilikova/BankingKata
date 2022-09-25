@@ -8,6 +8,7 @@ jobs:
     executor:
       name: win/default
     steps:
+      - checkout
       # default shell is Powershell
       - run:
           name: "Run Build step"
