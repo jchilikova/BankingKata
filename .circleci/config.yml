@@ -10,7 +10,7 @@ jobs:
     steps:
       # default shell is Powershell
       - run:
-         command: cd
+         command: dir
          shell: cmd.exe
       - run:
          command: dotnet test
