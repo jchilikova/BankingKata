@@ -102,7 +102,7 @@ namespace BankingKataTests
             var result = account.Withdraw(amount);
 
             // Assert
-            Assert.AreEqual(result.Balance, 70.80);
+            Assert.AreEqual(result.Balance, 79.80m);
         }
 
         [Test]

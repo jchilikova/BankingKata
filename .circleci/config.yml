@@ -1,0 +1,18 @@
+version: 2.1
+
+orbs:
+  win: circleci/windows@4.1.1
+
+jobs:
+  build:
+    executor:
+      name: win/default
+    steps:
+      - checkout
+      # default shell is Powershell
+      - run:
+          name: "Run Build"
+          command: dotnet build          
+      - run:
+          name: "Run Tests"
+          command: dotnet test
