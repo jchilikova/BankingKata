@@ -10,8 +10,5 @@ jobs:
     steps:
       # default shell is Powershell
       - run:
-         command: cd BankingKata
-         shell: cmd.exe
-      - run:
-         command: dotnet test
-         shell: cmd.exe
+          name: "Run Build step"
+          command: dotnet.exe publish -c Release -r win10-x64
