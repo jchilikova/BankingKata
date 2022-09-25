@@ -10,7 +10,7 @@ jobs:
     steps:
       # default shell is Powershell
       - run:
-         command: dotnet build
+         command: cd BankingKata dotnet build
          shell: cmd.exe
       - run:
          command: dotnet test
