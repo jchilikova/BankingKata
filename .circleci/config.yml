@@ -11,4 +11,4 @@ jobs:
       # default shell is Powershell
       - run:
           name: "Run Build step"
-          command: dotnet.exe publish -c Release -r win10-x64
+          command: dotnet build
